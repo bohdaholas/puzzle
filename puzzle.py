@@ -68,13 +68,13 @@ def get_color_block(board, starting_coords):
     Get each color block
     """
     block = ''
-    y, x = starting_coords
-    for y in range(y, y + 5):
-        if is_number(board[y][x]):
-            block += board[y][x]
-    for x in range(x, x + 5):
-        if is_number(board[y][x]):
-            block += board[y][x]
+    vertical, horizontal = starting_coords
+    for vertical in range(vertical, vertical + 5):
+        if is_number(board[vertical][horizontal]):
+            block += board[vertical][horizontal]
+    for horizontal in range(horizontal + 1, horizontal + 5):
+        if is_number(board[vertical][horizontal]):
+            block += board[vertical][horizontal]
     return block
 
 
