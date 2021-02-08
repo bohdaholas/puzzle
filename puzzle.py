@@ -61,3 +61,34 @@ def check_column(board):
         if len(values) != len(set(values)):
             return False
     return True
+
+
+def get_color_block(board, starting_coords):
+    """
+    Get each color block
+    """
+    block = ''
+    y, x = starting_coords
+    for y in range(y, y + 5):
+        if is_number(board[y][x]):
+            block += board[y][x]
+    for x in range(x, x + 5):
+        if is_number(board[y][x]):
+            block += board[y][x]
+    return block
+
+
+def check_color_block(board):
+    """
+    Check color block according to rules
+    >>> check_color_block(board_example)
+    True
+    """
+    blocks = []
+    for i in range(5):
+        coords = (i, 4 - i)
+        blocks.append(get_color_block(board, coords))
+    for block in blocks:
+        if len(block) != len(set(block)):
+            return False
+    return True
