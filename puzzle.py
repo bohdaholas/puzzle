@@ -42,3 +42,22 @@ def check_row(board):
         if len(values) != len(set(values)):
             return False
     return True
+
+
+def check_column(board):
+    """
+    Check columns according to rules
+    >>> check_column(board_example)
+    False
+    """
+    columns = []
+    for i in range(9):
+        column = ''
+        for row in board:
+            column += row[i]
+        columns.append(column)
+    for column in columns:
+        values = [x for x in column if is_number(x)]
+        if len(values) != len(set(values)):
+            return False
+    return True
