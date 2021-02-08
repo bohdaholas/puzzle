@@ -92,3 +92,16 @@ def check_color_block(board):
         if len(block) != len(set(block)):
             return False
     return True
+
+
+def validate_board(board):
+    """
+    Bla-bla-bla
+    :param board:
+    :return:
+    >>> validate_board(board_example)
+    False
+    """
+    if check_row(board) and check_column(board) and check_color_block(board):
+        return True
+    return False
